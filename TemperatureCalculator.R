@@ -1,3 +1,5 @@
+#step1
+
 #Function to calculate lowest temperature.
 #sets a really high starting temperature, then
 #loops through the list of temperatures and if a lower one is found, just 
@@ -33,8 +35,34 @@ highestTemperature <- function(temperatures) {
 averageTemperature <- function(temperatures) {
   totalTempSum <- 0
   for(temp in temperatures){
-    totalTempSum <- (totalTempSum+temp)
+    totalTempSum <- as.integer((totalTempSum+temp))
   }
-  average <- totalTempSum/length(temperatures)
+  average <- (totalTempSum/length(temperatures))
   return (average)
+}
+
+#Function that takes user input for temperatures during 30 days.
+tempInCity <- function(){
+  temp <- 1:30
+  for(i in 1:30){
+    temp[i] <- as.integer((c(readline(prompt = "Enter temperature: "))))
+  }
+  return(temp)
+}
+
+
+#step2
+
+#Enter the name of 10 cities and their temperature for each day in 1 month
+#The print the min, max and average temperature using borh own functions an 
+#built in functions
+for(i in 1:10){
+  city <- (c(readline(prompt = "Enter cityname: ")))
+  temp <- tempInCity()
+  cat("Own function lowest temperature in", city ,"is", lowestTemperature(temp), "degrees\n")
+  cat("Built in lowest temperature in", city ,"is", min(temp),"degreees\n")
+  cat("Own function highest temperature in", city ,"is", highestTemperature(temp), "degrees\n")
+  cat("Built in highest temperature in", city ,"is", max(temp),"degreees\n")
+  cat("Own function average temperature in", city ,"is", averageTemperature(temp), "degrees\n")
+  cat("Built in average temperature in", city ,"is", mean(temp),"degreees\n")
 }
