@@ -1,4 +1,7 @@
-#Step1 - Replace missing numerical values with mean value from the same column.
+#Step 1 - Replace empty values with NA
+kidney_disease[kidney_disease==""] <- NA
+
+#Step 2 - Replace missing numerical values with mean value from the same column.
 meanAge <- mean(kidney_disease$age, na.rm = TRUE)
 kidney_disease$age[is.na(kidney_disease$age)]<-meanAge
 
@@ -32,7 +35,11 @@ kidney_disease$pot[is.na(kidney_disease$pot)]<-meanPOT
 meanHemo <- mean(kidney_disease$hemo, na.rm = TRUE)
 kidney_disease$hemo[is.na(kidney_disease$hemo)]<-meanHemo
 
-kidney_disease$pcv[kidney_disease$pcv == ''] <- NA
-kidney_disease$pcv[] <- lapply(kidney_disease$pcv, as.numeric)
-meanPCV <- mean(kidney_disease$pcv, na.rm = TRUE)
+meanPCV <- mean(as.numeric(kidney_disease$pcv), na.rm = TRUE)
 kidney_disease$pcv[is.na(kidney_disease$pcv)]<-meanPCV
+
+meanWC <- mean(as.numeric(kidney_disease$wc), na.rm = TRUE)
+kidney_disease$wc[is.na(kidney_disease$wc)]<-meanWC
+
+meanRC <- mean(as.numeric(kidney_disease$rc), na.rm = TRUE)
+kidney_disease$rc[is.na(kidney_disease$rc)]<-meanRC
