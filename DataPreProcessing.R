@@ -27,7 +27,7 @@ meanSC <- mean(kidney_disease$sc, na.rm = TRUE)
 kidney_disease$sc[is.na(kidney_disease$sc)]<-meanSC
 
 meanSOD <- mean(kidney_disease$sod, na.rm = TRUE)
-kidney_disease$sod<-meanSOD
+kidney_disease$sod[is.na(kidney_disease$sod)]<-meanSOD
 
 meanPOT <- mean(kidney_disease$pot, na.rm = TRUE)
 kidney_disease$pot[is.na(kidney_disease$pot)]<-meanPOT
