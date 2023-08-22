@@ -13,6 +13,7 @@ recordSaleValue <- function(){
   }
   return(sum)
 }
+
 giveOutChange <- function(sumToPay, paymentRecieved){
   amountInRegistry <<- amountInRegistry + paymentRecieved
   change <- paymentRecieved-sumToPay 
@@ -25,7 +26,6 @@ checkBalance <- function(){
   return(moneyInCashRegistry)
 }
 
-
 showProducts()
 wantToAddMore <- "y"
 while(wantToAddMore == "y"){
@@ -33,7 +33,9 @@ while(wantToAddMore == "y"){
    count[length(count)+1] <- as.integer(c(readline(prompt = "How many would you like to buy?")))
   wantToAddMore <- readline(prompt = "Do you want to buy anything else?")
 }
+
 sumToPay <- recordSaleValue()
+
 cat("Your amount to pay is:")
 cat(sumToPay)
 paymentRecieved <- as.integer(readline(prompt = "How much do you pay? "))
